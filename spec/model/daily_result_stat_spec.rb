@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe DailyResultStat, type: :model do
-  let(:daily_stat) { create(:daily_result_stat) }
+  let(:daily_stat) { build(:daily_result_stat) }
 
   describe 'validations' do
     it 'is valid with valid attributes' do
@@ -18,6 +18,11 @@ RSpec.describe DailyResultStat, type: :model do
     it 'is not valid without a daily high' do
       daily_stat.daily_high = nil
       expect(daily_stat).not_to be_valid
+    end
+
+    it 'is valid with a valid float' do
+      daily_stat.daily_high = 123.67
+      expect(daily_stat).to be_valid
     end
 
     it 'is not valid without a daily low' do

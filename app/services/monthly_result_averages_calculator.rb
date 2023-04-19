@@ -25,9 +25,10 @@ class MonthlyResultAveragesCalculator
     end.compact.sum
     monthly_low = daily_low_sum / daily_volumes_sum if daily_low_sum
     monthly_high = daily_high_sum / daily_volumes_sum if daily_high_sum
-
+    MonthlyResultAverage.create(month: '', subject: subject, monthly_low: monthly_low.round(2),
+                                monthly_high: monthly_high.round(2), result_count: result_count)
     {
-      date: date,
+      month: date.month,
       subject: subject,
       monthly_low: monthly_low.round(2),
       monthly_high: monthly_high.round(2),

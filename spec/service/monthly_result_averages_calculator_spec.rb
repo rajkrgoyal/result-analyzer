@@ -25,7 +25,7 @@ RSpec.describe MonthlyResultAveragesCalculator, type: :service do
 
       it 'returns monthly result when there is a data for previuos days' do
         expected_result = {
-          date: date,
+          month: date.month,
           subject: subject,
           monthly_low: 12.21,
           monthly_high: 59.36,

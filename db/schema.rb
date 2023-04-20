@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_105011) do
   end
 
   create_table "monthly_result_averages", force: :cascade do |t|
-    t.date "month"
+    t.string "month"
     t.string "subject"
     t.float "monthly_low"
     t.float "monthly_high"

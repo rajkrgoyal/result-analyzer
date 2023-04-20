@@ -28,7 +28,7 @@ class MonthlyResultAveragesCalculator
     MonthlyResultAverage.create(month: '', subject: subject, monthly_low: monthly_low.round(2),
                                 monthly_high: monthly_high.round(2), result_count: result_count)
     {
-      month: date.month,
+      month: Date::MONTHNAMES[date.month],
       subject: subject,
       monthly_low: monthly_low.round(2),
       monthly_high: monthly_high.round(2),

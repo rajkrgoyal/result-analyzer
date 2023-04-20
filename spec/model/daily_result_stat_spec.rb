@@ -25,9 +25,24 @@ RSpec.describe DailyResultStat, type: :model do
       expect(daily_stat).to be_valid
     end
 
+    it 'validates daily_high and convert string into 0.0' do
+      daily_stat.daily_high = "Test"
+      expect(daily_stat).to be_valid
+    end
+
     it 'is not valid without a daily low' do
       daily_stat.daily_low = nil
       expect(daily_stat).not_to be_valid
+    end
+
+    it 'is valid with a valid float' do
+      daily_stat.daily_low = 123.67
+      expect(daily_stat).to be_valid
+    end
+
+    it 'validates daily_low and convert string into 0.0' do
+      daily_stat.daily_low = "Test"
+      expect(daily_stat).to be_valid
     end
 
     it 'is not valid without a date' do
